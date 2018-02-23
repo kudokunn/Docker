@@ -1,0 +1,16 @@
+- Xem các trợ giúp về các lệnh trong docker: docker --help
+- Xem các option lệnh trong docker: docker <command> --help
+Ex: docker run --help
+- Xem cac image hiện có: docker images
+- Kéo image: docker pull <tên image:version>
+Ex: docker pull ubuntu:14.04 or docker pull ubuntu=ubuntu:latest
+- Tìm kiếm image: docker seacher <tên images> 
+Ex: docker search nginx
+- Xóa image: docker rmi <tên image>
+- Chạy một image để tạo container: docker run [option] <tên image>
+[option]: -d: chạy background, 
+          -it bash: chạy vào hẳn container để thao tác trong container, 
+          -e: thêm các biến môi trường
+          ... more: docker run --help
+- Bật sẵn sàng một container: docker create [option] <tên image>
+

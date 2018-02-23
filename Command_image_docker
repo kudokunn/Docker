@@ -11,6 +11,7 @@ Ex: docker search nginx
 [option]: -d: chạy background, 
           -it bash: chạy vào hẳn container để thao tác trong container, 
           -e: thêm các biến môi trường
+          -v: đồng bộ data từ host đến container: docker run -v ./:/minh/hah -it <image> bash
           ... more: docker run --help
 - Bật sẵn sàng một container: docker create [option] <tên image>
 

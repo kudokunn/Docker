@@ -1,6 +1,6 @@
 ## Docker là kiểu ảo hoá sử dụng Container còn có cách gọi khác là "ảo hoá mức hệ điều hành" (operating system virtualization)
 
-### Phân biệt Ảo hóa truyền thống (ảo hóa phần cứng)
+### Phân biệt Ảo hóa truyền thống (ảo hóa phần cứng) và ảo hóa mức hệ điều hành
 
 #### Ảo hoá truyền thống 
 

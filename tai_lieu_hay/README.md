@@ -1,4 +1,4 @@
-# docker-ghichep
+Link gốc: https://github.com/hocchudong/ghichep-docker
 - Những ghi chép về docker
 
 ### Lịch sử tài liệu

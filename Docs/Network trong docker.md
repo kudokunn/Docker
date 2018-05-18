@@ -4,7 +4,7 @@
 
 2. Khi cài đặt docker service thì sẽ tạo card mạng docker0 trên hosts (máy cài đặt docker) => khi khởi chạy một container trên docker trong host thì một interface mới đại diện cho container đó sẽ hiện ra 
 
-Hình 1;
+![](/image/1.PNG)
 
 3. Trong container đó cũng tạo ra một card mạng cho nó (chưa biết kiểm tra ra sao -_-) nhưng có thể xem ip của nó qua: 
 

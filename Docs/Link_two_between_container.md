@@ -9,7 +9,7 @@
  
  1.1 Xem file hosts trong container 
  
- hình 2: 
+ ![](/image/2.PNG)
  
  Cái 172.17.0.2	79f6f55e2eff là cho chính nó <localhost> không có thông tin để phân giải name sang IP cho container khác. Hosname thì không định nghĩa riêng khi chạy docker run -h thì nó lấy ID của containter là hostname
  

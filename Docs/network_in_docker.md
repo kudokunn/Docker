@@ -51,7 +51,8 @@ Giải thích:
 -A POSTROUTING -s 172.17.0.0/16 ! -o docker0 -j MASQUERADE
 ý nghĩa: cho biết là thêm một rule vào POSTROUTING chain của nat table của iptables, tất cả các packet có source ip là 172.17.0.0/16 không đi đến interface docker0 sẽ được MASQUERADE nghĩa là nếu package này sẽ được sửa đổi source IP sao cho giống out interface của host mà nó đi qua.
 
-6. Để từ outside world truy cập dịch vụ bên trong container, bạn phải expose service trong container. Thực chất là một kiểu port forwarding. Ví dụ: [root@localhost Docker_Centos6]# docker run -it -p 81:80 image_name => Ở đây port trong container 80 sẽ được map đến 81 trong host.
+6.
+Để từ outside world truy cập dịch vụ bên trong container, bạn phải expose service trong container. Thực chất là một kiểu port forwarding. Ví dụ: [root@localhost Docker_Centos6]# docker run -it -p 81:80 image_name => Ở đây port trong container 80 sẽ được map đến 81 trong host.
 
 + Nhưng port đã được map nhưng dịch vụ trong container phải được start thì mới dùng đươc.
 

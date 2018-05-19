@@ -1,9 +1,0 @@
-- xem các contaier đang chạy: docker ps
-- Xem các container đang chạy và đã chạy: docekr ps -a
-- Xóa một container đã hoặc đang chạy: docker rm -f <ID của container> hoặc docker rm -f <name container>
-Ex: docker rm -f abcd12342 hoặc docker rm -f mysqlwp
-- Start hoặc dừng một container: docker start/stop <ID container>
-- Dừng tất cả container đang chạy: docker stop $(docker ps -qa)
-- Xóa tất cả các container đang và đã chạy: docker rm$(docker ps -qa)
-- Xem logs của một docker đang chạy: docker logs <ID container>
-- Chạy command trong container đang chạy: docker exec -it <tên container hoặc ID container đang chạy> bash

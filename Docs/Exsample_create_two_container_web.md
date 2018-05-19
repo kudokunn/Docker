@@ -26,11 +26,14 @@ Sử dụng 2 image docker: mysql và wordpress
    
         $ sudo docker run -it --name=mysqlwp --net my-net -e MYSQL_ROOT_PASSWORD=pass -d mysql 
         $ sudo docker exec -it mysqlwp bash
+        
         # hostname -i
         172.18.0.2
+        
         # cat /etc/resolv.conf
         nameserver 127.0.0.11
         options ndots:0
+        
         # --net my-net: cần liên kết với network my-net đã tạo trước 
         # Tham số -e MYSQL_ROOT_PASSWORD=pass: cài thêm trước tham số pass_root vào mysql, đỡ công vào setup pass root 
         

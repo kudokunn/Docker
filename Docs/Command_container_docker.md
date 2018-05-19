@@ -19,7 +19,7 @@ Error response from daemon: driver "devicemapper" failed to remove root filesyst
 
 [root@template-centos7 mnt]# grep c4d4523bd3d9aa218d7da2cd0118d4976ab4bcae9c5642033763511fed372d69 /proc/*/mountinfo
 
- /proc/32298/mountinfo:249 242 253:3 / /var/lib/docker/devicemapper/mnt/c4d4523bd3d9aa218d7da2cd0118d4976ab4bcae9c5642033763511fed372d69       rw,relatime shared:212 - xfs /dev/mapper/docker-253:0-202371570-c4d4523bd3d9aa218d7da2cd0118d4976ab4bcae9c5642033763511fed372d69            rw,nouuid,attr2,inode64,logbsize=64k,sunit=128,swidth=128,noquota
+    /proc/32298/mountinfo:249 242 253:3 / /var/lib/docker/devicemapper/mnt/c4d4523bd3d9aa218d7da2cd0118d4976ab4bcae9c5642033763511fed372d69       rw,relatime shared:212 - xfs /dev/mapper/docker-253:0-202371570-c4d4523bd3d9aa218d7da2cd0118d4976ab4bcae9c5642033763511fed372d69            rw,nouuid,attr2,inode64,logbsize=64k,sunit=128,swidth=128,noquota
 
 => Pid là 32298
 
@@ -27,3 +27,5 @@ Error response from daemon: driver "devicemapper" failed to remove root filesyst
 
         [root@template-centos7 mnt]# ps -p 32298 -o comm=
         mysqld
+        
+* Status serivce có chạy, xong hãy kill pid đó: kill -9 32298 và xóa container đó. Xong phải restart lại service mysqld ngay lâp tức để nó khởi động, cần xem nếu serivce đó quá quan trọng không được tắt thì chịu, không xóa được container đó.

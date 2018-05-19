@@ -8,7 +8,7 @@ Ex: docker rm -f abcd12342 hoặc docker rm -f mysqlwp
 - Xem logs của một docker đang chạy: docker logs <ID container>
 - Chạy command trong container đang chạy: docker exec -it <tên container hoặc ID container đang chạy> bash
 
-Lỗi khi rm môt container: docker run <ID container>
+Lỗi khi rm môt container: docker rm <ID container>
 
 [root@template-centos7 ~]# docker rm graphite -f
 Error response from daemon: driver "devicemapper" failed to remove root filesystem for e5e42ae7002f86a44db4d1378e395135949dd59e415b62bac1485e607e972e0c: remove /var/lib/docker/devicemapper/mnt/c4d4523bd3d9aa218d7da2cd0118d4976ab4bcae9c5642033763511fed372d69: device or resource busy

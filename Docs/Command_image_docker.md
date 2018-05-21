@@ -15,3 +15,4 @@ Ex: docker search nginx
           ... more: docker run --help
 - Bật sẵn sàng một container: docker create [option] <tên image>
 
+#### Cấu trúc chuẩn cho khi chạy images tạo container: docker run --name <name_container> .... -d nginx

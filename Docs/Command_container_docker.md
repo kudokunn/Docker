@@ -6,7 +6,9 @@ Ex: docker rm -f abcd12342 hoặc docker rm -f mysqlwp
 - Dừng tất cả container đang chạy: docker stop $(docker ps -qa)
 - Xóa tất cả các container đang và đã chạy: docker rm$(docker ps -qa)
 - Xem logs của một docker đang chạy: docker logs <ID container>
-- Chạy command trong container đang chạy: docker exec -it <tên container hoặc ID container đang chạy> bash
+### Chạy command trong container đang chạy: docker exec -it <tên container hoặc ID container đang chạy> bash
+
+
 
 Lỗi khi rm môt container: docker rm <ID container>
 

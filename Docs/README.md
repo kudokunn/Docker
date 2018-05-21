@@ -21,3 +21,7 @@ Liên kết hai container trong docker [tại đây](Link_two_between_container.
 ### Ví dụ đơn giản cho docker 
 
 Ví dụ tạo web wordpress sử dụng hai container [tại đây](Exsample_create_two_container_web.md)
+
+### Volume trong docker
+
+Volume trong docker [tại đây](Volume_in_docker.md)

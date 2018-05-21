@@ -2,8 +2,6 @@
 
 Package cần cho [docker](Some_package_need_in_container.md)
 
-Xem các lệnh cơ bản thao tác cho docker về [images](Command_image_docker.md)
-
 ### Các lệnh cơ bản trong docker về images
 
 Xem các lệnh cơ bản thao tác cho docker về [images](Command_image_docker.md)

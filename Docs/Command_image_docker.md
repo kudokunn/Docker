@@ -15,4 +15,4 @@ Ex: docker search nginx
           ... more: docker run --help
 - Bật sẵn sàng một container: docker create [option] <tên image>
 
-#### Cấu trúc chuẩn cho khi chạy images tạo container: docker run --name <name_container> [-p xx:yy | yy->xx] -d nginx
+#### Cấu trúc chuẩn cho khi chạy images tạo container: docker run --name <name_container> [-p xx:yy | change port yy container ra port host sẽ đọc là xx] [-v /xx:/yy | xx->yy | mount /xx vào /yy trong container ]-d nginx

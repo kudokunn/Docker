@@ -25,4 +25,6 @@ hoặc cài package:
 
 - Centos: apt-get install vim 
 
+### 5, Lệnh netstat
 
+ apt-get install net-tools

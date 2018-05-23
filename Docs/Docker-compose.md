@@ -1,4 +1,4 @@
-EX: Để chạy bộ  LAMP ta cần: Linux, apache, mysql, php. 
+### Vấn đề: EX: Để chạy bộ  LAMP ta cần: Linux, apache, mysql, php. 
 Mysql
 1: Lấy image về: docker pull mysql
 2: Chạy contaier: docker run -e MYSQL_ROOT_PASSWORD=123 MYSQL_DATABASE=abc ... -p 8000:3306 -d mysql

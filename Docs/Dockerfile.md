@@ -66,7 +66,7 @@ Thông báo cho Docker rằng container sẽ lắng nghe trên các cổng đư�
 
       EXPOSE 8080 
 
-Ví dụ: 
+Ví dụ Dockerfile chạy service nginx và php-fpm container ubuntu
 
 
       #Download base image ubuntu 16.04
@@ -109,17 +109,113 @@ Ví dụ:
 
 Tạo file cho việc COPY
 
-      $ touch default
-      $ touch supervisord.conf
-      $ touch start.sh
+* File default
+
+        touch defaults
+        
+            server {
+            listen 80 default_server;
+            listen [::]:80 default_server;
+
+            root /var/www/html;
+            index index.html index.htm index.nginx-debian.html;
+
+            server_name localhost;
+
+            error_log /var/log/nginx/error.log;
+            access_log /var/log/nginx/access.log;
+
+            location / {
+                try_files $uri $uri/ =404;
+            }
+
+            location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+            }
+
+            # deny access to .htaccess files, if Apache's document root
+            # concurs with nginx's one
+            #
+            #location ~ /\.ht {
+            #    deny all;
+            #}
+        }
+
+File supervisord
+
+            
+      touch supervisord.conf
+
+            [unix_http_server]
+            file=/dev/shm/supervisor.sock   ; (the path to the socket file)
+
+            [supervisord]
+            logfile=/var/log/supervisord.log ; (main log file;default $CWD/supervisord.log)
+            logfile_maxbytes=50MB        ; (max main logfile bytes b4 rotation;default 50MB)
+            logfile_backups=10           ; (num of main logfile rotation backups;default 10)
+            loglevel=info                ; (log level;default info; others: debug,warn,trace)
+            pidfile=/tmp/supervisord.pid ; (supervisord pidfile;default supervisord.pid)
+            nodaemon=false               ; (start in foreground if true;default false)
+            minfds=1024                  ; (min. avail startup file descriptors;default 1024)
+            minprocs=200                 ; (min. avail process descriptors;default 200)
+            user=root             ;
+
+            ; the below section must remain in the config file for RPC
+            ; (supervisorctl/web interface) to work, additional interfaces may be
+            ; added by defining them in separate rpcinterface: sections
+            [rpcinterface:supervisor]
+            supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
+
+            [supervisorctl]
+            serverurl=unix:///dev/shm/supervisor.sock ; use a unix:// URL  for a unix socket
+
+            ; The [include] section can just contain the "files" setting.  This
+            ; setting can list multiple files (separated by whitespace or
+            ; newlines).  It can also contain wildcards.  The filenames are
+            ; interpreted as relative to this file.  Included files *cannot*
+            ; include files themselves.
+
+            [include]
+            files = /etc/supervisor/conf.d/*.conf
 
 
+            [program:php-fpm7.0]
+            command=/usr/sbin/php-fpm7.0 -F
+            numprocs=1
+            autostart=true
+            autorestart=true
+
+            [program:nginx]
+            command=/usr/sbin/nginx
+            numprocs=1
+            autostart=true
+            autorestart=true
+
+File script
+
+            touch start.sh
+
+                #!/bin/sh
+
+                /usr/bin/supervisord -n -c /etc/supervisor/supervisord.conf
 
 
-
-      
-      
-      
-      
+Thêm vào Dockerfile lệnh để gán quyền chạy cho file start.sh
+    
+                RUN chmod +x start.sh     
       
 ### Chạy lệnh tạo image: Docker build -t <image:tag> .
+
+### Chạy tạo container từ images mới: 
+
+            docker run -d -v /webroot:/var/www/html -p 9000:80 --name nginx-php nginx_image
+            
+Bây giờ thư mục /webroot được tạo trên hosts, ta có thể tạo file index.html để nó tự đồng bộ về container và chạy
+
+            vim index.html
+            
+            <h1>Nginx and PHP-FPM 7 inside Docker Container</h1>
+
+
+

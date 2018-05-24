@@ -15,10 +15,12 @@ Ex: docker search nginx
           ... more: docker run --help
 - Bật sẵn sàng một container: docker create [option] <tên image>
 
-#### Cấu trúc chuẩn cho khi chạy images tạo container: docker run --name <name_container> 
+#### Cấu trúc chuẩn cho khi chạy images tạo container: 
 
-#### [-p xx:yy | change port yy container ra port host sẽ đọc là xx] 
+                    docker run --name <name_container>  [-p xx:yy | change port yy container ra port host sẽ đọc là xx] [-v /xx:/yy | xx->yy | mount /xx vào /yy trong container ] -d nginx
 
-#### [-v /xx:/yy | xx->yy | mount /xx vào /yy trong container ]
+- docker run -it nginx bash => vào thẳng cotainer nhưng thoát sẽ exit ngay container đó
+- docker run -itd nginx bash => tham số -d sẽ áp đảo -it nên container sẽ chạy ngầm
+- docker exec -it ID_container bash => vào container đó khi nó được tạo khi đang chạy ngầm
+=> tạo container để nó chạy ngầm và vào theo lệnh exec ...
 
-#### -d nginx
